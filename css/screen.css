@@ -12,14 +12,18 @@ html {
     padding: 24px 24px 0;
 }
 
-/*
- * Remove text-shadow in selection highlight:
- * https://twitter.com/miketaylr/status/12228805301
- *
- * Customize the background color to match your design.
- */
-
 ::selection {
     background: #44C8F5;
     color: white;
+}
+
+/*
+    Elements: Images
+    ---
+    Default markup for images to make them responsive
+*/
+
+img {
+    max-width: 100%;
+    vertical-align: top;
 }

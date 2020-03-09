@@ -9,13 +9,34 @@ html {
     line-height: 1.5;
     font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
     color: #111;
-    padding: 24px 24px 0;
-    scroll-behavior: smooth;
+    padding: 48px 24px 24px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    box-sizing: border-box;
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    max-width: 42em;
+    margin: 0 auto;
+}
+
+/*
+ * Remove text-shadow in selection highlight:
+ * https://twitter.com/miketaylr/status/12228805301
+ *
+ * Customize the background color to match your design.
+ */
+
 ::selection {
-    background: #44C8F5;
+    background: #e85e00;
     color: white;
+    text-shadow: none;
 }
 
 /*
@@ -40,7 +61,7 @@ h1 {
     font-size: 36px;
     font-weight: normal;
     line-height: 40px;
-    margin: 0 0 48px;
+    margin: 0 0 24px;
 }
 
 h2 {
@@ -74,13 +95,12 @@ figure {
 }
 
 ul,
-ol,
-blockquote {
+ol {
     padding-left: 24px;
 }
 
 li ul,
-li ol{
+li ol {
     margin-bottom: 0;
 }
 
@@ -101,74 +121,41 @@ figcaption {
     font-size: 12px;
     line-height: 16px;
     padding-top: 8px;
-    color: grey;
+    color: Grey;
 }
 
 hr {
     border: 0;
     height: 1px;
-    background: lightgrey;
+    background: LightGrey;
     margin: 0 0 24px;
 }
 
 a {
-    color: royalblue;
+    color: RoyalBlue;
     transition: all .1s ease-in-out;
-}
-
-a:hover,
-a:focus {
-    color: crimson;
 }
 
 a:visited,
 a:active {
-    color: blueviolet;
+    color: BlueViolet;
 }
 
-table {
-    width: 100%;
-    border-spacing: 0;
+a:hover,
+a:focus {
+    color: Crimson;
 }
-
-th {
-    text-align: left;
-}
-
-th,
-td {
-    padding: 4px 8px;
-    border-bottom: 1px solid gainsboro;
-}
-
-.odd {
-    background-color: whitesmoke;
-}
-
-/*
-    Media Queries
-    ---
-    EXAMPLE Media Queries for Responsive Design.
-    These examples override the primary ('mobile first') styles.
-    Modify as content requires.
-*/
-
-
-/* Extra small devices (portrait phones, less than 576px)
-   No media query since this is the default in Bootstrap
-*/
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
 
-}
+@media (min-width: 576px) {}
 
 /* Medium devices (tablets, 768px and up) */
+
 @media (min-width: 768px) {
     html {
         padding: 48px 48px 24px;
     }
-
     h1 {
         font-size: 58px;
         line-height: 64px;
@@ -176,11 +163,76 @@ td {
 }
 
 /* Large devices (landscape tablets, desktops, 992px and up) */
-@media (min-width: 992px) {
 
-}
+@media (min-width: 992px) {}
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
 
+@media (min-width: 1200px) {}
+
+/*
+    Print styles.
+    ---
+    Inlined to avoid the additional HTTP request:
+    http://www.phpied.com/delay-loading-your-print-css/
+*/
+
+@media print {
+    *,
+    *:before,
+    *:after {
+        background: transparent !important;
+        color: #000 !important;
+        /* Black prints faster:
+                                   http://www.sanbeiji.com/archives/953 */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+    /*
+     * Don't show links that are fragment identifiers,
+     * or use the `javascript:` pseudo protocol
+     */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+    pre {
+        white-space: pre-wrap !important;
+    }
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+    /*
+     * Printing Tables:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
 }
